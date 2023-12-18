@@ -20,3 +20,4 @@ export default function RootLayout({
     </html>
   )
 }
+// Environment setup -> 2h14
