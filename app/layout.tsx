@@ -20,4 +20,4 @@ export default function RootLayout({
     </html>
   )
 }
-// Environment setup -> 2h14
+// Environment setup -> 9:17

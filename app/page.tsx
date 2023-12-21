@@ -1,5 +1,9 @@
+import { Button } from "@/components/ui/button";
+
 export default function Home() {
   return (
-    <div className="text-red-500 font-bold">CreativeMinds App</div>
-  )
+    <div className="flex flex-1 flex-col items-center justify-center">
+      <Button variant={"destructive"}>Hello</Button>
+    </div>
+  );
 }
