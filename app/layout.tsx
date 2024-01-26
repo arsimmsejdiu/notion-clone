@@ -5,8 +5,22 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'CreativeMinds',
-  description: 'Organize your life with out hands on features from CreateiveMinds',
+  title: 'Jotion',
+  description: 'The connected workspace where better, faster work happens.',
+  icons: {
+    icon: [
+      {
+        media: "(prefers-color-scheme: light)",
+        url: "/logo.svg",
+        href: "/logo.svg",
+      },
+      {
+        media: "(prefers-color-scheme: dark)",
+        url: "/logo-dark.svg",
+        href: "/logo-dark.svg",
+      }
+    ]
+  }
 }
 
 export default function RootLayout({
@@ -20,4 +34,4 @@ export default function RootLayout({
     </html>
   )
 }
-// Environment setup -> 9:17
+// Landing page -> 23:55
