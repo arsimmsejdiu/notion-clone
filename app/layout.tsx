@@ -48,4 +48,4 @@ export default function RootLayout({
     </html>
   );
 }
-// Landing page -> 32:17
+// Auth & Database -> beginning
