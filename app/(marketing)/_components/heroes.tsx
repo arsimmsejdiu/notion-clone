@@ -1,4 +1,4 @@
-import { Documents, DocumentsDark, Reading } from "@/assets";
+import { Documents, DocumentsDark, Reading, ReadingDark } from "@/assets";
 import Image from "next/image";
 
 export const Heroes = () => {
@@ -9,18 +9,19 @@ export const Heroes = () => {
           <Image
             src={Documents}
             alt="Documents"
-            className="object-contain"
+            className="object-contain dark:hidden"
             fill
           />
-          {/* <Image
+          <Image
             src={DocumentsDark}
             alt="Documents Dark"
-            className="object-contain"
+            className="object-contain hidden dark:block"
             fill
-          /> */}
+          />
         </div>
         <div className="relative h-[400px] w-[400px] hidden md:block">
-          <Image src={Reading} alt="Reading" className="object-contain" fill />
+          <Image src={Reading} alt="Reading" className="object-contain dark:hidden" fill />
+          <Image src={ReadingDark} alt="Reading" className="object-contain hidden dark:block" fill />
         </div>
       </div>
     </div>
