@@ -46,7 +46,7 @@ export default function RootLayout({
           >
             <Toaster position="bottom-center" />
 
-            <ModalProvider />
+            {/* <ModalProvider /> */}
             {children}
           </ThemeProvider>
         </ConvexClientProvider>
@@ -54,4 +54,4 @@ export default function RootLayout({
     </html>
   );
 }
-// Auth & Database -> 12:44
+// User Dropdown -> beginning
