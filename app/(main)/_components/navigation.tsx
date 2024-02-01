@@ -22,6 +22,8 @@ import {
   PopoverContent,
 } from "@/components/ui/popover";
 import { UserItem } from "./user-item";
+import { api } from "@/convex/_generated/api";
+import DocumentList from "./document-list";
 
 export const Navigation = () => {
   const router = useRouter();
@@ -137,7 +139,7 @@ export const Navigation = () => {
           <UserItem />
         </div>
         <div className="mt-4">
-          <p>Documents</p>
+          <DocumentList />
         </div>
         <div
           onMouseDown={handleMouseDown}

@@ -9,13 +9,25 @@ import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { Empty, EmptyDark } from "@/assets";
+import { api } from "@/convex/_generated/api";
 
 const DocumentsPage = () => {
   const router = useRouter();
   const { user } = useUser();
-//TODO: const create = useMutation(api.documents.create);
+  const create = useMutation(api.documents.create);
 
-// TODO: const onCreate = () => {}
+  const onCreate = () => {
+    const promise = create({ title: "Untitled" });
+      // TODO: uncomment after creating the documentId route .then((documentId) =>
+      //   router.push(`/documents/${documentId}`)
+      // );
+
+    toast.promise(promise, {
+      loading: "Creating a new note...",
+      success: "New note created!",
+      error: "Failed to create a new note.",
+    });
+  };
 
   return (
     <div className="h-full flex flex-col items-center justify-center space-y-4">
@@ -36,7 +48,7 @@ const DocumentsPage = () => {
       <h2 className="text-lg font-medium">
         Welcome to {user?.firstName}&apos;s Jotion
       </h2>
-      <Button onClick={() => {}}>
+      <Button onClick={onCreate}>
         <PlusCircle className="h-4 w-4 mr-2" />
         Create a note
       </Button>
