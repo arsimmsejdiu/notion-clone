@@ -53,4 +53,4 @@ export default function RootLayout({
     </html>
   );
 }
-// Achieve Functionallity -> beggining
+// Trash bin -> beggining
