@@ -53,4 +53,4 @@ export default function RootLayout({
     </html>
   );
 }
-// Trash bin -> beggining
+// Trash bin -> 12:49
