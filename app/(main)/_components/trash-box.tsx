@@ -10,6 +10,7 @@ import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import { Spinner } from "@/components/spinner";
 import { Input } from "@/components/ui/input";
+import { ConfirmModal } from "@/components/modals/confirm-modal";
 
 const TrashBox = () => {
   const router = useRouter();
@@ -23,6 +24,48 @@ const TrashBox = () => {
   const filteredDocuments = documents?.filter((document) => {
     return document.title.toLowerCase().includes(search.toLowerCase());
   });
+
+  const onClick = (documentId: string) => {
+    router.push(`/documents/${documentId}`);
+  };
+
+  const onRestore = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    documentId: Id<"documents">,
+  ) => {
+    event.stopPropagation();
+    const promise = restore({ id: documentId });
+
+    toast.promise(promise, {
+      loading: "Restoring note...",
+      success: "Note restored!",
+      error:" Failed to restore note."
+    });
+  };
+
+  const onRemove = (
+    documentId: Id<"documents">,
+  ) => {
+    const promise = remove({ id: documentId });
+
+    toast.promise(promise, {
+      loading: "Deleting note...",
+      success: "Note deleted!",
+      error:" Failed to delete note."
+    });
+
+    if (params.documentId === documentId) {
+      router.push("/documents");
+    }
+  };
+
+  if (documents === undefined) {
+    return (
+      <div className="h-full flex items-center justify-center p-4">
+        <Spinner size="lg" />
+      </div>
+    );
+  }
 
   return (
     <div className="text-sm">
@@ -43,26 +86,26 @@ const TrashBox = () => {
           <div
             key={document._id}
             role="button"
-            onClick={() => {}} // TODO: replace inside with -> () => onClick(document._id) create the onClick function
+            onClick={() => onClick(document._id)} // TODO: replace inside with -> () => onClick(document._id) create the onClick function
             className="text-sm rounded-sm w-full hover:bg-primary/5 flex items-center text-primary justify-between"
           >
             <span className="truncate pl-2">{document.title}</span>
             <div className="flex items-center">
               <div
                 role="button"
-                onClick={() => {}} // TODO: replace inside with -> (e) => onRestore(e, document._id) create the onRestore function
+                onClick={(e) => onRestore(e, document._id)} // TODO: replace inside with -> (e) => onRestore(e, document._id) create the onRestore function
                 className="rounded-sm p-2 hover:bg-neutral-200 dark:hover:bg-neutral-600"
               >
                 <Undo className="h-4 w-4 text-muted-foreground" />
               </div>
-              {/* TODO: <ConfirmModal onConfirm={() => onRemove(document._id)}>
+              <ConfirmModal onConfirm={() => onRemove(document._id)}>
                 <div
                   role="button"
                   className="rounded-sm p-2 hover:bg-neutral-200 dark:hover:bg-neutral-600"
                 >
                   <Trash className="h-4 w-4 text-muted-foreground" />
                 </div>
-              </ConfirmModal> */}
+              </ConfirmModal>
             </div>
           </div>
         ))}

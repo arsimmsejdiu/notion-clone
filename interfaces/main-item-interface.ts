@@ -1,4 +1,4 @@
-import { Id } from "@/convex/_generated/dataModel";
+import { Id, Doc } from "@/convex/_generated/dataModel";
 import { LucideIcon } from "lucide-react";
 
 export interface ItemProps {
@@ -13,3 +13,28 @@ export interface ItemProps {
   onClick?: () => void;
   icon: LucideIcon;
 }
+
+export interface NavbarProps {
+  isCollapsed: boolean;
+  onResetWidth: () => void;
+}
+
+export interface DocumentListProps {
+  parentDocumentId?: Id<"documents">;
+  level?: number;
+  data?: Doc<"documents">[];
+}
+
+export interface DocumentIdPageProps {
+  params: {
+    documentId: Id<"documents">;
+  };
+}
+
+export interface TitleProps {
+  initialData: Doc<"documents">;
+};
+
+export interface BannerProps {
+  documentId: Id<"documents">;
+};

@@ -1,6 +1,6 @@
 "use client"
 
-import {DocumentIdPageProps} from "@/interfaces/document-list-interface";
+import { DocumentIdPageProps } from "@/interfaces/main-item-interface";
 
 const DocumentIdPage = ({params}: DocumentIdPageProps) => {
     return (

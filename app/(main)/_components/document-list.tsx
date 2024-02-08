@@ -5,7 +5,7 @@ import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { FileIcon } from "lucide-react";
 
-import { DocumentListProps } from "@/interfaces/document-list-interface";
+import { DocumentListProps } from "@/interfaces/main-item-interface";
 import { useParams, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
