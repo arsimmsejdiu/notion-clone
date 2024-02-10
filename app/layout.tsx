@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ConvexClientProvider } from "@/components/providers/convex-provider";
-import { ModalProvider } from "@/components/providers/nodal-provider";
+import { ModalProvider } from "@/components/providers/modal-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -45,7 +45,7 @@ export default function RootLayout({
             storageKey="jotion-theme-2"
           >
             <Toaster position="bottom-center" />
-            {/* <ModalProvider /> */}
+            <ModalProvider />
             {children}
           </ThemeProvider>
         </ConvexClientProvider>
@@ -53,4 +53,4 @@ export default function RootLayout({
     </html>
   );
 }
-// Search Dialog -> beggining
+// Navbar -> beggining
