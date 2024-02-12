@@ -13,7 +13,7 @@ import { TitleProps } from "@/interfaces/main-item-interface";
 
 export const Title = ({ initialData }: TitleProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  // const update = useMutation(api.documents.update);
+  const update = useMutation(api.documents.update);
 
   const [title, setTitle] = useState(initialData.title || "Untitled");
   const [isEditing, setIsEditing] = useState(false);
@@ -33,10 +33,10 @@ export const Title = ({ initialData }: TitleProps) => {
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
-    // update({
-    //   id: initialData._id,
-    //   title: event.target.value || "Untitled"
-    // });
+    update({
+      id: initialData._id,
+      title: event.target.value || "Untitled"
+    });
   };
 
   const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
