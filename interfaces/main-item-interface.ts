@@ -38,3 +38,11 @@ export interface TitleProps {
 export interface BannerProps {
   documentId: Id<"documents">;
 };
+
+export interface MenuProps {
+  documentId: Id<"documents">;
+};
+
+export interface PublishProps {
+  initialData: Doc<"documents">
+};
