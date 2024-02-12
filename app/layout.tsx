@@ -53,4 +53,4 @@ export default function RootLayout({
     </html>
   );
 }
-// Navbar -> beggining
+// Toolbar -> beggining
