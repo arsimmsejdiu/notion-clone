@@ -9,4 +9,4 @@ export interface IconPickerProps {
 export interface ToolbarProps {
   initialData: Doc<"documents">;
   preview?: boolean;
-};
+}
